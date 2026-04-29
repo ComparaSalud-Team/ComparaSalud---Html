@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Iniciar Sesión – ComparaSalud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      background: #F8FAFC;
+    }
+
+    /* ── Panel izquierdo ── */
+    .auth-left {
+      width: 32%;
+      background: linear-gradient(160deg, #38BDF8 0%, #3B82F6 40%, #10B981 75%, #059669 100%);
+      display: flex;
+      flex-direction: column;
+      padding: 36px 32px 0;
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+
+    .auth-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      margin-bottom: 28px;
+      z-index: 2;
+    }
+    .auth-logo img { height: 48px; width: auto; }
+    .auth-logo span { font-weight: 800; font-size: 1.3rem; color: white; }
+
+    .auth-left-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: white;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .auth-left-desc {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.5rem;
+      line-height: 1.65;
+      margin-bottom: 24px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .auth-left-bottom {
+      flex: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-top: 16px;
+    }
+
+    .auth-left-img {
+      width: 74%;
+      display: block;
+      object-fit: contain;
+      object-position: center;
+      max-height: none;
+      margin: 0 auto;
+    }
+
+    .badge-cita {
+      position: absolute;
+      top: 180px;
+      left: -8px;
+      background: white;
+      border-radius: 12px;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #374151;
+      white-space: nowrap;
+      z-index: 10;
+    }
+
+    .badge-cita-dot {
+      width: 20px;
+      height: 20px;
+      background: #10B981;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .badge-cita-dot svg { width: 11px; height: 11px; }
+
+    .badge-cita small {
+      display: block;
+      font-weight: 400;
+      color: #9CA3AF;
+      font-size: 0.64rem;
+      margin-top: 1px;
+    }
+
+    /* ── Panel derecho ── */
+    .auth-right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 64px;
+      background: white;
+    }
+
+    .auth-form-box {
+      width: 100%;
+      max-width: 860px;
+    }
+
+    .auth-form-box h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #0F172A;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    /* Gradient text on title */
+    .auth-form-box h1 .highlight {
+      background: linear-gradient(90deg, #3B82F6 0%, #10B981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .auth-form-subtitle {
+      color: #64748B;
+      font-size: 1.05rem;
+      text-align: center;
+      margin-bottom: 36px;
+      line-height: 1.5;
+    }
+
+    /* Cards de perfil */
+    .profile-cards-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .profile-card {
+      flex: 1;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 28px 20px 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .profile-card:hover {
+      border-color: #BFDBFE;
+      box-shadow: 0 4px 16px rgba(59,130,246,0.1);
+    }
+
+    .profile-card-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      margin-bottom: 14px;
+    }
+
+    .profile-card .card-label {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #3B82F6;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .profile-card p {
+      font-size: 0.88rem;
+      color: #64748B;
+      line-height: 1.5;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .btn-card {
+      display: block;
+      width: 100%;
+      padding: 13px 8px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-family: 'Be Vietnam Pro', sans-serif;
+      transition: opacity 0.2s;
+    }
+    .btn-card:hover { opacity: 0.88; }
+    .btn-card.blue   { background: #1E3A8A; }
+    .btn-card.orange { background: #F97316; }
+    .btn-card.purple { background: #7C3AED; }
+
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .auth-divider::before,
+    .auth-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #E2E8F0;
+    }
+
+    .auth-divider span {
+      font-size: 0.8rem;
+      color: #94A3B8;
+      white-space: nowrap;
+    }
+
+    .auth-bottom-link {
+      text-align: center;
+      font-size: 0.88rem;
+      color: #64748B;
+    }
+
+    .auth-bottom-link a {
+      color: #3B82F6;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .auth-bottom-link a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      body { flex-direction: column; }
+      .auth-left { width: 100%; min-height: auto; padding: 28px 24px; }
+      .auth-left-bottom { min-height: 160px; }
+      .auth-right { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Panel izquierdo -->
+  <div class="auth-left">
+    <a href="../index.html" class="auth-logo">
+      <img src="../assets/icons/logo.png" alt="ComparaSalud" />
+      <span>ComparaSalud</span>
+    </a>
+
+    <h2 class="auth-left-title">Tu salud, transparente y al alcance</h2>
+    <p class="auth-left-desc">Accede a tu cuenta para gestionar tus citas médicas, comparar precios y tomar el control de tu bienestar.</p>
+
+    <div class="auth-left-bottom">
+      <img class="auth-left-img" src="../assets/images/hero-woman.png" alt="ComparaSalud" />
+
+      <div class="badge-cita">
+        <div class="badge-cita-dot">
+          <svg viewBox="0 0 13 13" fill="none">
+            <path d="M2.5 6.5l3 3 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          Cita confirmada
+          <small>15 de Mayo, 10:00 AM</small>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Panel derecho -->
+  <div class="auth-right">
+    <div class="auth-form-box">
+      <h1>¿Como quieres usar <span class="highlight">ComparaSalud?</span></h1>
+      <p class="auth-form-subtitle">Elige tu perfil para comenzar en segundos y disfrutar de una experiencia personalizada segun tus necesidades.</p>
+
+      <div class="profile-cards-row">
+        <div class="profile-card">
+          <img class="profile-card-img" src="../assets/images/patients-couple.png" alt="Pacientes" />
+          <span class="card-label">Pacientes</span>
+          <p>Encuentra los mejores proveedores de salud con precios transparentes y agenda al instante.</p>
+          <button class="btn-card blue" onclick="window.location.href='registro-2.html'">Registrarme como paciente →</button>
+        </div>
+        <div class="profile-card">
+          <img class="profile-card-img" src="../assets/images/doctor.png" alt="Doctores" />
+          <span class="card-label">Doctores</span>
+          <p>Aumenta tu visibilidad, atrae más pacientes y gestiona tu práctica fácilmente.</p>
+          <button class="btn-card orange" onclick="window.location.href='registro-2.html'">Registrarme como doctor →</button>
+        </div>
+        <div class="profile-card">
+          <img class="profile-card-img" src="../assets/images/clinic.png" alt="Clínicas" />
+          <span class="card-label">Clínicas</span>
+          <p>Haz crecer tu red de proveedores y ofrece mejores beneficios de salud a tus empleados.</p>
+          <button class="btn-card purple" onclick="window.location.href='registro-2.html'">Registrarme como clínica →</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

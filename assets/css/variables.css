@@ -1,0 +1,53 @@
+/* ============================================
+   VARIABLES GLOBALES — CompararSalud
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Colores principales */
+  --primary:       #3B82F6;
+  --primary-dark:  #2563EB;
+  --accent:        #10B981;
+  --purple:        #7C3AED;
+  --orange:        #F59E0B;
+
+  /* Textos */
+  --text-dark:  #0F172A;
+  --text-mid:   #334155;
+  --text-soft:  #64748B;
+
+  /* Fondos y bordes */
+  --border:    #E2E8F0;
+  --bg-light:  #F1F5F9;
+  --white:     #ffffff;
+
+  /* Gradientes */
+  --gradient-brand:   linear-gradient(135deg, #06B6D4 0%, #3B82F6 50%, #10B981 100%);
+  --gradient-pricing: linear-gradient(160deg, #38BDF8 0%, #3B82F6 40%, #10B981 100%);
+  --gradient-trust:   linear-gradient(160deg, #06B6D4 0%, #059669 100%);
+
+  /* Tipografía */
+  --font: 'Be Vietnam Pro', sans-serif;
+
+  /* Espaciado */
+  --section-pad: 80px 6%;
+  --max-w: 1180px;
+}
+
+/* ── RESET ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  color: var(--text-dark);
+  background: var(--white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+a  { text-decoration: none; }
+ul { list-style: none; }
+button { font-family: var(--font); cursor: pointer; border: none; }
