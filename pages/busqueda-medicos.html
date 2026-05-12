@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buscar Médicos – ComparaSalud</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/variables.css">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Be Vietnam Pro',sans-serif;
+      background:#F8FAFC;
+      color:#0F172A;
+    }
+
+    /* NAVBAR */
+
+    .navbar{
+      height:72px;
+      background:white;
+      border-bottom:1px solid #E2E8F0;
+      padding:0 5%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .nav-logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+    }
+
+    .nav-logo img{
+      width:40px;
+    }
+
+    .nav-logo span{
+      font-weight:800;
+      color:#1E293B;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:36px;
+      list-style:none;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:#64748B;
+      font-size:.9rem;
+      font-weight:500;
+    }
+
+    .nav-actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      padding:11px 18px;
+      border-radius:8px;
+      font-size:.84rem;
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .btn-outline{
+      background:#EEF2FF;
+      color:#1E293B;
+    }
+
+    .btn-primary{
+      background:linear-gradient(90deg,#3B82F6 0%, #10B981 100%);
+      color:white;
+    }
+
+    /* MAIN */
+
+    .wrapper{
+      max-width:1250px;
+      margin:auto;
+      padding:30px 5%;
+    }
+
+    /* TOP SEARCH */
+
+    .top-search{
+      background:white;
+      border:1px solid #E2E8F0;
+      border-radius:20px;
+      padding:24px;
+      margin-bottom:26px;
+    }
+
+    .search-box{
+      height:56px;
+      border:1px solid #CBD5E1;
+      border-radius:14px;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      margin-bottom:18px;
+    }
+
+    .search-box input{
+      flex:1;
+      border:none;
+      outline:none;
+      padding:0 20px;
+      font-size:.92rem;
+      font-family:'Be Vietnam Pro',sans-serif;
+    }
+
+    .search-btn{
+      width:52px;
+      height:52px;
+      margin-right:2px;
+      border-radius:12px;
+      border:none;
+      background:linear-gradient(180deg,#3B82F6 0%, #10B981 100%);
+      color:white;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .search-btn svg{
+      width:18px;
+      height:18px;
+    }
+
+    .top-filters{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .filter-select{
+      height:42px;
+      border:1px solid #E2E8F0;
+      border-radius:10px;
+      padding:0 14px;
+      background:white;
+      font-family:'Be Vietnam Pro',sans-serif;
+      font-size:.82rem;
+      color:#475569;
+      min-width:120px;
+    }
+
+    .country-select{
+      width:70px;
+      min-width:70px;
+    }
+
+    /* CONTENT */
+
+    .content{
+      display:grid;
+      grid-template-columns:260px 1fr;
+      gap:20px;
+    }
+
+    /* SIDEBAR */
+
+    .sidebar{
+      background:white;
+      border:1px solid #E2E8F0;
+      border-radius:18px;
+      padding:22px;
+      height:fit-content;
+    }
+
+    .sidebar h3{
+      color:#10B981;
+      font-size:1rem;
+      margin-bottom:24px;
+    }
+
+    .filter-group{
+      margin-bottom:24px;
+    }
+
+    .filter-group label{
+      display:block;
+      margin-bottom:10px;
+      font-size:.82rem;
+      font-weight:700;
+      color:#1E293B;
+    }
+
+    .filter-group select{
+      width:100%;
+      height:42px;
+      border:1px solid #CBD5E1;
+      border-radius:10px;
+      padding:0 12px;
+      background:white;
+      font-family:'Be Vietnam Pro',sans-serif;
+      color:#64748B;
+    }
+
+    /* CUSTOM RANGE */
+
+    .range-wrap{
+      margin-top:8px;
+    }
+
+    .range-value{
+      display:flex;
+      justify-content:space-between;
+      font-size:.82rem;
+      font-weight:700;
+      margin-top:10px;
+    }
+
+    input[type="range"]{
+      width:100%;
+      appearance:none;
+      height:4px;
+      border-radius:20px;
+      background:linear-gradient(90deg,#8B5CF6 0%, #A855F7 70%, #E2E8F0 70%);
+      outline:none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb{
+      appearance:none;
+      width:14px;
+      height:14px;
+      border-radius:50%;
+      background:#8B5CF6;
+      border:2px solid white;
+      box-shadow:0 0 0 2px #8B5CF6;
+      cursor:pointer;
+    }
+
+    .apply-btn{
+      width:100%;
+      height:44px;
+      border:none;
+      border-radius:10px;
+      background:linear-gradient(90deg,#3B82F6 0%, #10B981 100%);
+      color:white;
+      font-family:'Be Vietnam Pro',sans-serif;
+      font-weight:700;
+      margin-top:12px;
+      cursor:pointer;
+    }
+
+    .clear-btn{
+      margin-top:14px;
+      width:100%;
+      background:none;
+      border:none;
+      color:#64748B;
+      font-size:.82rem;
+      cursor:pointer;
+    }
+
+    /* DOCTORS */
+
+    .doctor-list{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .doctor-card{
+      background:white;
+      border:1px solid #E2E8F0;
+      border-radius:16px;
+      padding:16px;
+      display:flex;
+      gap:16px;
+      align-items:flex-start;
+    }
+
+    .doctor-img{
+      width:92px;
+      height:110px;
+      border-radius:10px;
+      object-fit:cover;
+      flex-shrink:0;
+    }
+
+    .doctor-content{
+      flex:1;
+    }
+
+    .doctor-header{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .doctor-name{
+      font-size:1rem;
+      font-weight:800;
+      color:#1E1B4B;
+      margin-bottom:2px;
+    }
+
+    .doctor-role{
+      font-size:.82rem;
+      font-weight:700;
+      margin-bottom:8px;
+      color:#1E293B;
+    }
+
+    .doctor-description{
+      font-size:.73rem;
+      line-height:1.6;
+      color:#475569;
+      max-width:650px;
+      margin-bottom:10px;
+    }
+
+    .doctor-location{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:.74rem;
+      color:#475569;
+      margin-bottom:10px;
+    }
+
+    .doctor-location svg{
+      width:14px;
+      height:14px;
+    }
+
+    .doctor-tags{
+      display:flex;
+      gap:10px;
+      margin-bottom:14px;
+      flex-wrap:wrap;
+    }
+
+    .tag{
+      padding:5px 14px;
+      border-radius:999px;
+      font-size:.7rem;
+      font-weight:600;
+      color:#4338CA;
+      background:#EEE7FF;
+    }
+
+    .tag.beige{
+      background:#F8EEDF;
+      color:#6B4E16;
+    }
+
+    .doctor-bottom{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+    }
+
+    .doctor-stats{
+      display:flex;
+      gap:28px;
+    }
+
+    .stat strong{
+      display:block;
+      font-size:1.05rem;
+      color:#1E1B4B;
+      margin-bottom:2px;
+    }
+
+    .stat span{
+      font-size:.7rem;
+      color:#64748B;
+    }
+
+    .appointment-btn{
+      width:120px;
+      height:42px;
+      border:none;
+      border-radius:10px;
+      background:#2563EB;
+      color:white;
+      font-weight:700;
+      font-family:'Be Vietnam Pro',sans-serif;
+      cursor:pointer;
+      flex-shrink:0;
+    }
+
+    .doctor-icons{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+
+    .doctor-icons svg{
+      width:18px;
+      height:18px;
+      color:#1E1B4B;
+    }
+
+    /* FOOTER */
+
+    .footer{
+      margin-top:42px;
+      background:#201B5A;
+      padding:30px 5%;
+    }
+
+    .footer-content{
+      max-width:1250px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:white;
+      font-weight:700;
+    }
+
+    .footer-content img{
+      width:42px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:1000px){
+
+      .content{
+        grid-template-columns:1fr;
+      }
+
+      .doctor-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .appointment-btn{
+        width:100%;
+      }
+    }
+
+    @media(max-width:768px){
+
+      .nav-links{
+        display:none;
+      }
+
+      .doctor-card{
+        flex-direction:column;
+      }
+
+      .doctor-stats{
+        flex-wrap:wrap;
+        gap:18px;
+      }
+
+      .top-filters{
+        overflow:auto;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav class="navbar">
+
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/icons/logo.png">
+      <span>ComparaSalud</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#">Beneficios</a></li>
+      <li><a href="#">Cómo funciona</a></li>
+      <li><a href="#">Proveedores</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="login.html" class="btn btn-outline">Iniciar Sesión</a>
+      <a href="registro-1.html" class="btn btn-primary">Registrarse</a>
+    </div>
+
+  </nav>
+
+  <!-- MAIN -->
+
+  <div class="wrapper">
+
+    <!-- SEARCH -->
+
+    <div class="top-search">
+
+      <div class="search-box">
+
+        <input type="text" placeholder="Buscar médicos, especialidades y servicios...">
+
+        <button class="search-btn">
+
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+          </svg>
+
+        </button>
+
+      </div>
+
+      <div class="top-filters">
+
+        <select class="filter-select country-select">
+          <option>🇵🇪</option>
+        </select>
+
+        <select class="filter-select">
+          <option>Medicina general</option>
+        </select>
+
+        <select class="filter-select">
+          <option>Esta semana</option>
+        </select>
+
+        <select class="filter-select">
+          <option>Español</option>
+        </select>
+
+        <select class="filter-select">
+          <option>Online</option>
+        </select>
+
+        <select class="filter-select">
+          <option>Experiencia</option>
+        </select>
+
+      </div>
+
+    </div>
+
+    <!-- CONTENT -->
+
+    <div class="content">
+
+      <!-- SIDEBAR -->
+
+      <aside class="sidebar">
+
+        <h3>Filtros</h3>
+
+        <div class="filter-group">
+          <label>Ubicación</label>
+
+          <select>
+            <option>Selecciona tu país/ciudad...</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label>Categoría</label>
+
+          <select>
+            <option>Medicina general</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+
+          <label>Rango de precio</label>
+
+          <div class="range-wrap">
+
+            <input type="range" value="70">
+
+            <div class="range-value">
+              <span>$50</span>
+              <span>$500</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="filter-group">
+
+          <label>Disponibilidad</label>
+
+          <select>
+            <option>Esta semana</option>
+          </select>
+
+        </div>
+
+        <div class="filter-group">
+
+          <label>Modalidad</label>
+
+          <select>
+            <option>Online</option>
+          </select>
+
+        </div>
+
+        <div class="filter-group">
+
+          <label>Calificación</label>
+
+          <div class="range-wrap">
+
+            <input type="range" value="70">
+
+            <div class="range-value">
+              <span>1 ★</span>
+              <span>5 ★</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <button class="apply-btn">
+          Aplicar filtros
+        </button>
+
+        <button class="clear-btn">
+          Limpiar filtros
+        </button>
+
+      </aside>
+
+      <!-- DOCTORS -->
+
+      <section class="doctor-list">
+
+        <!-- CARD -->
+
+        <div class="doctor-card">
+
+          <img src="../assets/images/doctor-card-1.png" class="doctor-img">
+
+          <div class="doctor-content">
+
+            <div class="doctor-header">
+
+              <div>
+
+                <div class="doctor-name">
+                  🇵🇪 Dr. Armando Castillo
+                </div>
+
+                <div class="doctor-role">
+                  Médico profesional
+                </div>
+
+              </div>
+
+              <div class="doctor-icons">
+
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <circle cx="18" cy="6" r="1"></circle>
+                </svg>
+
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.8 0-5 2.2-5 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5v-14c0-2.8-2.2-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.2c-1 0-1.8-.8-1.8-1.8s.8-1.8 1.8-1.8 1.8.8 1.8 1.8-.8 1.8-1.8 1.8zm13.5 11.2h-3v-5.6c0-1.3-.5-2.2-1.7-2.2-.9 0-1.4.6-1.7 1.2-.1.2-.1.5-.1.8v5.8h-3s0-9.4 0-10.4h3v1.5c.4-.7 1.1-1.7 2.8-1.7 2 0 3.5 1.3 3.5 4.2v6.4z"/>
+                </svg>
+
+              </div>
+
+            </div>
+
+            <div class="doctor-description">
+              Especialista en cardiología intervencionista con amplia experiencia en tratamiento de enfermedades cardiovasculares.
+            </div>
+
+            <div class="doctor-location">
+
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7z"/>
+              </svg>
+
+              Yo hablo: Español Nativo, Inglés C2, Portugues Intermedio B2
+
+            </div>
+
+            <div class="doctor-tags">
+
+              <div class="tag beige">
+                Ecocardiograma
+              </div>
+
+              <div class="tag">
+                ECG
+              </div>
+
+              <div class="tag">
+                Prueba de esfuerzo
+              </div>
+
+            </div>
+
+            <div class="doctor-bottom">
+
+              <div class="doctor-stats">
+
+                <div class="stat">
+                  <strong>5 ★</strong>
+                  <span>104 reseñas</span>
+                </div>
+
+                <div class="stat">
+                  <strong>32</strong>
+                  <span>pacientes</span>
+                </div>
+
+                <div class="stat">
+                  <strong>300</strong>
+                  <span>sesiones</span>
+                </div>
+
+                <div class="stat">
+                  <strong>16</strong>
+                  <span>reservas</span>
+                </div>
+
+                <div class="stat">
+                  <strong>S/150</strong>
+                  <span>50-min sesión</span>
+                </div>
+
+              </div>
+
+              <button class="appointment-btn">
+                Agendar cita
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- CARD 2 -->
+
+        <div class="doctor-card">
+
+          <img src="../assets/images/doctor-card-2.png" class="doctor-img">
+
+          <div class="doctor-content">
+
+            <div class="doctor-header">
+
+              <div>
+
+                <div class="doctor-name">
+                  🇵🇪 Dra. Maura Casas
+                </div>
+
+                <div class="doctor-role">
+                  Cardiólogo | 12 años de experiencia
+                </div>
+
+              </div>
+
+              <div class="doctor-icons">
+
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <circle cx="18" cy="6" r="1"></circle>
+                </svg>
+
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.8 0-5 2.2-5 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5v-14c0-2.8-2.2-5-5-5z"/>
+                </svg>
+
+              </div>
+
+            </div>
+
+            <div class="doctor-description">
+              Experta en cardiología preventiva y rehabilitación cardíaca. Miembro de la Sociedad Peruana de Cardiología.
+            </div>
+
+            <div class="doctor-location">
+              Yo hablo: Español Nativo, Inglés C2, Portugues Intermedio B2
+            </div>
+
+            <div class="doctor-tags">
+
+              <div class="tag beige">
+                Consulta preventiva
+              </div>
+
+              <div class="tag">
+                Holter
+              </div>
+
+            </div>
+
+            <div class="doctor-bottom">
+
+              <div class="doctor-stats">
+
+                <div class="stat">
+                  <strong>4.9 ★</strong>
+                  <span>104 reseñas</span>
+                </div>
+
+                <div class="stat">
+                  <strong>32</strong>
+                  <span>pacientes</span>
+                </div>
+
+                <div class="stat">
+                  <strong>300</strong>
+                  <span>sesiones</span>
+                </div>
+
+                <div class="stat">
+                  <strong>16</strong>
+                  <span>reservas</span>
+                </div>
+
+                <div class="stat">
+                  <strong>S/150</strong>
+                  <span>50-min sesión</span>
+                </div>
+
+              </div>
+
+              <button class="appointment-btn">
+                Agendar cita
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- CARD 3 -->
+
+        <div class="doctor-card">
+
+          <img src="../assets/images/doctor-card-3.png" class="doctor-img">
+
+          <div class="doctor-content">
+
+            <div class="doctor-header">
+
+              <div>
+
+                <div class="doctor-name">
+                  🇵🇪 Dr. Mateo Rojas
+                </div>
+
+                <div class="doctor-role">
+                  Cardiólogo profesional
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="doctor-description">
+              Cardiólogo intervencionista con especialización en cateterismo cardíaco y angioplastia coronaria.
+            </div>
+
+            <div class="doctor-location">
+              Yo hablo: Español Nativo, Inglés C2, Portugues Intermedio B2
+            </div>
+
+            <div class="doctor-tags">
+
+              <div class="tag beige">
+                Cateterismo
+              </div>
+
+              <div class="tag">
+                Consulta especializada
+              </div>
+
+            </div>
+
+            <div class="doctor-bottom">
+
+              <div class="doctor-stats">
+
+                <div class="stat">
+                  <strong>5 ★</strong>
+                  <span>104 reseñas</span>
+                </div>
+
+                <div class="stat">
+                  <strong>32</strong>
+                  <span>pacientes</span>
+                </div>
+
+                <div class="stat">
+                  <strong>300</strong>
+                  <span>sesiones</span>
+                </div>
+
+                <div class="stat">
+                  <strong>16</strong>
+                  <span>reservas</span>
+                </div>
+
+                <div class="stat">
+                  <strong>S/150</strong>
+                  <span>50-min sesión</span>
+                </div>
+
+              </div>
+
+              <button class="appointment-btn">
+                Agendar cita
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- CARD 4 -->
+
+        <div class="doctor-card">
+
+          <img src="../assets/images/doctor-card-4.png" class="doctor-img">
+
+          <div class="doctor-content">
+
+            <div class="doctor-header">
+
+              <div>
+
+                <div class="doctor-name">
+                  🇵🇪 Dra. Luna Yi
+                </div>
+
+                <div class="doctor-role">
+                  médico profesional
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="doctor-description">
+              Soy Maura Casas, especialista en medicina del talento y el bienestar psicológico.
+            </div>
+
+            <div class="doctor-location">
+              Yo hablo: Español Nativo, Inglés C2, Portugues Intermedio B2
+            </div>
+
+            <div class="doctor-tags">
+
+              <div class="tag beige">
+                Gestión de clínicas organizacional
+              </div>
+
+              <div class="tag">
+                Estrategia empresarial
+              </div>
+
+            </div>
+
+            <div class="doctor-bottom">
+
+              <div class="doctor-stats">
+
+                <div class="stat">
+                  <strong>5 ★</strong>
+                  <span>104 reseñas</span>
+                </div>
+
+                <div class="stat">
+                  <strong>32</strong>
+                  <span>pacientes</span>
+                </div>
+
+                <div class="stat">
+                  <strong>300</strong>
+                  <span>sesiones</span>
+                </div>
+
+                <div class="stat">
+                  <strong>16</strong>
+                  <span>reservas</span>
+                </div>
+
+                <div class="stat">
+                  <strong>S/150</strong>
+                  <span>50-min sesión</span>
+                </div>
+
+              </div>
+
+              <button class="appointment-btn">
+                Agendar cita
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+
+    <div class="footer-content">
+
+      <img src="../assets/icons/logo.png">
+
+      <span>ComparaSalud</span>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
