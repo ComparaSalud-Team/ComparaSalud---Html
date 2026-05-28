@@ -13,6 +13,7 @@ body{
 .container{
     width:100%;
 }
+
 /* =========================
    NAVBAR
 ========================= */
@@ -24,7 +25,7 @@ body{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 28px;
+    padding:0 72px;
 }
 
 .dashboard-left{
@@ -152,12 +153,11 @@ body{
 ========================= */
 
 .hero{
-  background:linear-gradient(100deg,#2563EB 0%, #10B981 100%);
-  height:520px;
-  position:relative;
-  overflow:visible;
-  margin-bottom:120px;
-  z-index:1;
+    background:linear-gradient(100deg,#2563EB 0%, #10B981 100%);
+    height:540px;
+    position:relative;
+    overflow:visible;
+    z-index:1;
 }
 
 .hero-inner{
@@ -181,48 +181,50 @@ body{
 
 .hero-title{
     color:white;
-    font-size:4rem;
-    line-height:1.05;
+    font-size:2.6rem;
+    line-height:1.1;
     font-weight:800;
-    margin-bottom:22px;
+    margin-bottom:18px;
 }
 
 .hero-sub{
     color:rgba(255,255,255,.9);
     line-height:1.7;
     max-width:520px;
-    margin-bottom:28px;
-    font-size:1rem;
+    margin-bottom:24px;
+    font-size:.95rem;
 }
 
 .hero-search{
     width:700px;
     background:white;
     border-radius:18px;
-    padding:18px;
+    padding:16px 20px;
     box-shadow:0 10px 24px rgba(0,0,0,.12);
     position:relative;
     z-index:5;
+    margin-bottom:12px;
 }
-
 .search-grid{
     display:grid;
-    grid-template-columns:1fr 1fr 1fr 130px;
-    gap:12px;
+    grid-template-columns:1fr 1fr 1fr 120px;
+    gap:10px;
 }
 
 .search-grid select,
 .search-grid input{
-    height:48px;
+    height:44px;
     border:1px solid #E2E8F0;
     border-radius:10px;
-    padding:0 14px;
+    padding:0 12px;
     font-family:'Be Vietnam Pro',sans-serif;
     color:#64748B;
     outline:none;
+    font-size:.88rem;
 }
 
 .search-grid button{
+    height:44px;
     border:none;
     border-radius:10px;
     background:linear-gradient(90deg,#2563EB 0%, #10B981 100%);
@@ -230,12 +232,13 @@ body{
     font-weight:700;
     cursor:pointer;
     font-family:'Be Vietnam Pro',sans-serif;
+    font-size:.9rem;
 }
 
 .hero-location{
     color:white;
     font-size:.78rem;
-    margin-top:12px;
+    margin-top:10px;
 }
 
 .hero-location a{
@@ -246,8 +249,9 @@ body{
 }
 
 .hero-right img{
-    width:560px;
+    width:520px;
     object-fit:contain;
+    margin-top:-10px;
 }
 
 /* =========================
@@ -255,25 +259,25 @@ body{
 ========================= */
 
 .float-bar{
-    width:1240px;
+    width:calc(100% - 144px);
+    max-width:1296px;
     background:white;
     border-radius:22px;
-    box-shadow:0 10px 24px rgba(0,0,0,.08);
+    box-shadow:0 10px 32px rgba(0,0,0,.10);
     position:absolute;
     left:50%;
     transform:translateX(-50%);
-    bottom:-90px;
-    padding:24px 28px;
+    bottom:-44px;
+    padding:22px 28px;
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    z-index:999;
+    z-index:10;
 }
-
 .float-item{
     display:flex;
     align-items:center;
     gap:14px;
-    padding:0 18px;
+    padding:0 20px;
 }
 
 .float-item:not(:last-child){
@@ -283,6 +287,7 @@ body{
 .float-icon{
     width:38px;
     height:38px;
+    flex-shrink:0;
     border-radius:50%;
     background:#EEF2FF;
     display:flex;
@@ -303,21 +308,31 @@ body{
 }
 
 /* =========================
-   CONTENT
+   LAYOUT WRAPPER — alinea todo el contenido
+========================= */
+
+.page-body{
+    width:100%;
+    max-width:1440px;
+    margin:0 auto;
+    padding:0 72px;
+}
+
+/* Espacio superior para compensar el float-bar que sobresale del hero */
+.page-body > *:first-child{
+    margin-top:72px;
+}
+
+/* =========================
+   CONTENT (secciones internas)
 ========================= */
 
 .dashboard-content{
     width:100%;
-    margin:110px auto 0;
-    padding:0 72px 80px;
-}
-
-.dashboard-content:first-of-type{
-    padding-top:30px;
 }
 
 .section{
-  margin-bottom:52px;
+    margin-bottom:52px;
 }
 
 .section-header{
@@ -327,18 +342,100 @@ body{
     margin-bottom:28px;
 }
 
-/* Ajuste fino para los encabezados de sección */
-.section-header h2 {
-    font-size: 2rem;
-    color: #1E1B4B;
-    /* Aseguramos que el texto empiece pegado al borde izquierdo del contenedor */
-    margin-left: 0; 
+.section-header h2{
+    font-size:1.8rem;
+    color:#1E1B4B;
+    font-weight:800;
 }
 
 .section-header a{
     color:#2563EB;
     font-weight:700;
     text-decoration:none;
+    font-size:.9rem;
+    white-space:nowrap;
+}
+
+/* =========================
+   ACTIONS SECTION
+========================= */
+
+.actions-section{
+    margin-bottom:52px;
+}
+
+.actions-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.action-card{
+    height:138px;
+    border-radius:18px;
+    padding:26px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+    transition:transform .15s, box-shadow .15s;
+}
+
+.action-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 24px rgba(0,0,0,.08);
+}
+
+.blue-action  { background:#EEF6FC; }
+.green-action { background:#EEF8F4; }
+.purple-action{ background:#F4ECFB; }
+
+.action-icon{
+    width:72px;
+    height:72px;
+    border-radius:50%;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-right:18px;
+    flex-shrink:0;
+}
+
+.action-icon img{
+    width:40px;
+    height:40px;
+    object-fit:contain;
+}
+
+.action-content h3{
+    font-size:1rem;
+    font-weight:700;
+    color:#1E1B4B;
+    margin-bottom:6px;
+}
+
+.action-content p{
+    font-size:.8rem;
+    color:#64748B;
+    line-height:1.45;
+    max-width:220px;
+}
+
+.action-arrow{
+    position:absolute;
+    right:20px;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#64748B;
+    font-size:1.1rem;
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
 }
 
 /* =========================
@@ -358,17 +455,24 @@ body{
     padding:28px 18px;
     text-align:center;
     box-shadow:0 4px 12px rgba(0,0,0,.03);
+    cursor:pointer;
+    transition:box-shadow .15s;
+}
+
+.specialty-card:hover{
+    box-shadow:0 8px 24px rgba(0,0,0,.08);
 }
 
 .specialty-card img{
-    width:56px;
-    height:56px;
-    margin:0 auto 16px;
+    width:54px;
+    height:54px;
+    margin:0 auto 14px;
 }
 
 .specialty-card h4{
     color:#1E1B4B;
-    margin-bottom:8px;
+    font-size:.9rem;
+    margin-bottom:6px;
 }
 
 .specialty-card p{
@@ -384,10 +488,11 @@ body{
     background:white;
     border:1px solid #E2E8F0;
     border-radius:18px;
-    padding:26px;
+    padding:26px 32px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:24px;
     box-shadow:0 4px 12px rgba(0,0,0,.03);
 }
 
@@ -398,16 +503,27 @@ body{
 }
 
 .date-box{
-    width:68px;
+    width:60px;
     text-align:center;
     border-right:1px solid #E2E8F0;
     padding-right:18px;
+    flex-shrink:0;
+}
+
+.date-box span{
+    font-size:.72rem;
+    color:#64748B;
+    font-weight:600;
+    text-transform:uppercase;
 }
 
 .date-box strong{
     display:block;
     color:#2563EB;
-    font-size:1.5rem;
+    font-size:1.6rem;
+    font-weight:800;
+    line-height:1;
+    margin:4px 0;
 }
 
 .doctor-info{
@@ -417,25 +533,56 @@ body{
 }
 
 .doctor-info img{
-    width:64px;
-    height:64px;
+    width:60px;
+    height:60px;
     border-radius:12px;
     object-fit:cover;
+}
+
+.doctor-info strong{
+    font-size:.95rem;
+    color:#1E1B4B;
+}
+
+.doctor-info p{
+    font-size:.82rem;
+    color:#64748B;
+    margin:3px 0;
+}
+
+.doctor-info small{
+    font-size:.74rem;
+    color:#94A3B8;
+}
+
+.appointment-card > div > strong{
+    font-size:.8rem;
+    color:#94A3B8;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+}
+
+.appointment-card > div > p{
+    font-size:.9rem;
+    color:#1E1B4B;
+    margin-top:4px;
 }
 
 .appointment-buttons{
     display:flex;
     flex-direction:column;
     gap:10px;
+    flex-shrink:0;
 }
 
 .appointment-buttons button{
-    width:170px;
-    height:42px;
+    width:160px;
+    height:40px;
     border-radius:10px;
     font-weight:700;
     cursor:pointer;
     font-family:'Be Vietnam Pro',sans-serif;
+    font-size:.88rem;
 }
 
 .primary-btn{
@@ -445,7 +592,7 @@ body{
 }
 
 .secondary-btn{
-    border:1px solid #2563EB;
+    border:1.5px solid #2563EB;
     background:white;
     color:#2563EB;
 }
@@ -470,55 +617,92 @@ body{
 
 .suggest-image{
     width:100%;
-    height:120px;
+    height:200px;
     object-fit:cover;
+    object-position:center 20%;
     border-radius:12px;
     margin-bottom:12px;
 }
 
+.suggest-card h4{
+    font-size:.95rem;
+    color:#1E1B4B;
+    margin-bottom:2px;
+}
+
+.suggest-card p{
+    font-size:.82rem;
+    color:#64748B;
+}
+
+.suggest-card small{
+    font-size:.76rem;
+    color:#94A3B8;
+    display:block;
+    margin-top:8px;
+}
+
 .suggest-card button{
     width:100%;
-    height:42px;
-    border:1px solid #2563EB;
+    height:40px;
+    border:1.5px solid #2563EB;
     background:white;
     color:#2563EB;
     border-radius:10px;
     font-weight:700;
     margin-top:14px;
     font-family:'Be Vietnam Pro',sans-serif;
+    font-size:.88rem;
+    cursor:pointer;
 }
 
 /* =========================
-   SERVICES
+   SERVICES  — fondo gris, flujo normal sin márgenes negativos
 ========================= */
 
 .services-bg{
     background:#F1F5F9;
-    padding:55px 0;
-    margin-top:-250px;
-    margin-bottom:-190px;
+    padding:56px 0;
+    margin-top:0;   /* ← eliminados los márgenes negativos */
+}
+
+.services-bg .page-body{
+    /* hereda el max-width y padding del page-body */
 }
 
 .services-grid{
     display:grid;
     grid-template-columns:repeat(6,1fr);
     gap:18px;
-    margin-top:18px;
+    margin-top:28px;
 }
 
 .service-card{
     background:white;
     border:1px solid #E2E8F0;
     border-radius:16px;
-    padding:28px 16px;
+    padding:28px 14px;
     text-align:center;
     box-shadow:0 4px 12px rgba(0,0,0,.03);
+    cursor:pointer;
 }
 
 .service-card img{
-    width:52px;
-    height:52px;
+    width:50px;
+    height:50px;
     margin:0 auto 14px;
+    display:block;
+}
+
+.service-card h4{
+    font-size:.88rem;
+    color:#1E1B4B;
+    margin-bottom:6px;
+}
+
+.service-card span{
+    font-size:.8rem;
+    color:#64748B;
 }
 
 /* =========================
@@ -529,7 +713,6 @@ body{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:22px;
-    margin-top:20px;
 }
 
 .offer-card{
@@ -542,100 +725,33 @@ body{
 
 .offer-image{
     width:100%;
-    height:120px;
+    height:160px;   /* antes 120px */
     border-radius:12px;
     object-fit:cover;
     margin-bottom:14px;
 }
 
+.offer-card h4{
+    font-size:.95rem;
+    color:#1E1B4B;
+    margin-bottom:6px;
+}
+
+.offer-card span{
+    font-size:1.1rem;
+    font-weight:700;
+    color:#1E1B4B;
+}
+
 .offer-card button{
     width:100%;
-    height:44px;
+    height:42px;
     border:none;
     border-radius:10px;
-    background:linear-gradient(90deg,#2563EB 0%, #10B981 100%);
+    background:linear-gradient(90deg,#2563EB 0%,#10B981 100%);
     color:white;
     font-weight:700;
     margin-top:14px;
     font-family:'Be Vietnam Pro',sans-serif;
-}
-/* =========================
-   ACTIONS SECTION
-========================= */
-
-.actions-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px; /* Mismo gap que usas en specialties-grid */
-    margin-top: 0; /* Quitamos el margen manual de 8px que tenías */
-}
-
-.action-card {
-    height: 138px;
-    border-radius: 18px;
-    padding: 26px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    /* Eliminamos cualquier margen externo que pueda mover la caja */
-    margin: 0; 
-}
-
-.blue-action{
-    background:#EEF6FC;
-}
-
-.green-action{
-    background:#EEF8F4;
-}
-
-.purple-action{
-    background:#F4ECFB;
-}
-
-.action-icon{
-    width:76px;
-    height:76px;
-    border-radius:50%;
-    background:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin-right:18px;
-    flex-shrink:0;
-}
-
-.action-icon img{
-    width:42px;
-    height:42px;
-    object-fit:contain;
-}
-
-.action-content h3{
-    font-size:1.1rem;
-    color:#1E1B4B;
-    margin-bottom:8px;
-}
-
-.action-content p{
-    font-size:.82rem;
-    color:#64748B;
-    line-height:1.45;
-    max-width:240px;
-}
-
-.action-arrow{
-    position:absolute;
-    right:22px;
-    width:34px;
-    height:34px;
-    border-radius:50%;
-    background:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#64748B;
-    font-size:1.2rem;
-    box-shadow:0 4px 10px rgba(0,0,0,.08);
+    cursor:pointer;
 }
