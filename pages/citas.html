@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mis Citas – ComparaSalud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/citas.css">
+</head>
+
+<body>
+<div class="container">
+
+  <!-- NAVBAR -->
+  <nav class="dashboard-navbar">
+    <div class="dashboard-left">
+      <a href="../index.html" class="dashboard-logo">
+        <img src="../assets/icons/logo.png" alt="">
+        <span>ComparaSalud</span>
+      </a>
+      <div class="dashboard-menu">
+        <a href="dashboard.html">Buscar</a>
+        <a href="citas.html" style="color:#2563EB; font-weight:700;">Mis citas</a>
+        <a href="#">Mis favoritos</a>
+        <a href="#">Documentos</a>
+      </div>
+    </div>
+
+    <div class="dashboard-right">
+      <div class="nav-circle">
+        <i class="fa-regular fa-circle-question"></i>
+      </div>
+      <div class="nav-circle">
+        <i class="fa-regular fa-bell"></i>
+      </div>
+      <div class="profile-wrapper" id="profileWrapper">
+        <div class="profile-box" id="profileToggle">
+          <img src="../assets/images/profile-user.png" alt="">
+          <div class="profile-info">
+            <strong>Marisol Gomez</strong>
+            <span>Paciente</span>
+          </div>
+          <div class="profile-arrow">
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+        </div>
+        <div class="profile-dropdown">
+          <a href="perfil.html">
+            <i class="fa-regular fa-user"></i>
+            Mi perfil
+          </a>
+          <a href="#">
+            <i class="fa-solid fa-gear"></i>
+            Configuración
+          </a>
+          <a href="../index.html">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            Cerrar sesión
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CITAS PAGE -->
+  <div class="citas-page">
+
+    <!-- PAGE HEADER -->
+    <div class="citas-page-header">
+      <div>
+        <h1>Mis citas médicas</h1>
+        <p>Visualiza y gestiona todas tus citas programadas.</p>
+      </div>
+      <button class="btn-historial">
+        <i class="fa-regular fa-clock"></i>
+        Historial de citas
+      </button>
+    </div>
+
+    <!-- STATS -->
+    <div class="citas-stats">
+
+      <div class="citas-stat-card">
+        <div class="citas-stat-icon blue">
+          <i class="fa-regular fa-calendar-check"></i>
+        </div>
+        <div>
+          <div class="citas-stat-number">6</div>
+          <div class="citas-stat-label">Total de citas</div>
+        </div>
+      </div>
+
+      <div class="citas-stat-card">
+        <div class="citas-stat-icon teal">
+          <i class="fa-regular fa-clock"></i>
+        </div>
+        <div>
+          <div class="citas-stat-number">3</div>
+          <div class="citas-stat-label">Próximas</div>
+        </div>
+      </div>
+
+      <div class="citas-stat-card">
+        <div class="citas-stat-icon green">
+          <i class="fa-regular fa-calendar-check"></i>
+        </div>
+        <div>
+          <div class="citas-stat-number">2</div>
+          <div class="citas-stat-label">Completadas</div>
+        </div>
+      </div>
+
+      <div class="citas-stat-card">
+        <div class="citas-stat-icon red">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div>
+          <div class="citas-stat-number">1</div>
+          <div class="citas-stat-label">Canceladas</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FILTER TABS -->
+    <div class="citas-filter-row">
+      <div class="citas-tabs">
+        <button class="tab-btn active">
+          Todas <span class="tab-count">6</span>
+        </button>
+        <button class="tab-btn">
+          Próximas <span class="tab-count">3</span>
+        </button>
+        <button class="tab-btn">
+          Completadas <span class="tab-count">2</span>
+        </button>
+        <button class="tab-btn">
+          Canceladas <span class="tab-count">1</span>
+        </button>
+      </div>
+      <button class="btn-filtros">
+        <i class="fa-solid fa-sliders"></i>
+        Filtros
+      </button>
+    </div>
+
+    <!-- CITAS LIST -->
+    <div class="citas-list">
+
+      <!-- Cita 1 — Próxima -->
+      <div class="cita-list-card">
+        <img class="cita-doctor-img" src="../assets/images/doctor-card-1.png" alt="Dr. Armando Castillo">
+        <div class="cita-list-content">
+          <div class="cita-list-top">
+            <h3>Dr. Armando Castillo</h3>
+            <span class="badge badge-proxima">Próxima</span>
+          </div>
+          <p class="cita-especialidad">Medicina General</p>
+          <div class="cita-rating">
+            <i class="fa-solid fa-star"></i>
+            4.8
+          </div>
+          <div class="cita-list-meta">
+            <div class="cita-meta-item">
+              <span class="meta-label">Fecha</span>
+              <span class="meta-value">
+                <i class="fa-regular fa-calendar"></i>
+                Lunes, 12 de Mayo 2026
+              </span>
+            </div>
+            <div class="cita-meta-item">
+              <span class="meta-label">Hora</span>
+              <span class="meta-value">
+                <i class="fa-regular fa-clock"></i>
+                10:00 (50 min)
+              </span>
+            </div>
+            <div class="cita-meta-item">
+              <span class="meta-label">Ubicación</span>
+              <span class="meta-value">
+                <i class="fa-solid fa-location-dot"></i>
+                Clínica Ricardo Palma - San Isidro
+              </span>
+            </div>
+          </div>
+          <div class="cita-list-actions">
+            <button class="btn-ver-detalles">
+              Ver detalles <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <button class="btn-reprogramar">Reprogramar</button>
+            <button class="btn-cancelar">Cancelar</button>
+          </div>
+        </div>
+        <div class="cita-list-right">
+          <span class="cita-id">ID: APT-2026-001234</span>
+          <span class="cita-price">150.00 PEN</span>
+        </div>
+      </div>
+
+      <!-- Cita 2 — Confirmada -->
+      <div class="cita-list-card">
+        <img class="cita-doctor-img" src="../assets/images/doctor-card-2.png" alt="Dra. María Fernández">
+        <div class="cita-list-content">
+          <div class="cita-list-top">
+            <h3>Dra. María Fernández</h3>
+            <span class="badge badge-confirmada">Confirmada</span>
+          </div>
+          <p class="cita-especialidad">Cardiología</p>
+          <div class="cita-rating">
+            <i class="fa-solid fa-star"></i>
+            4.9
+          </div>
+          <div class="cita-list-meta">
+            <div class="cita-meta-item">
+              <span class="meta-label">Fecha</span>
+              <span class="meta-value">
+                <i class="fa-regular fa-calendar"></i>
+                Miércoles, 14 de Mayo 2026
+              </span>
+            </div>
+            <div class="cita-meta-item">
+              <span class="meta-label">Hora</span>
+              <span class="meta-value">
+                <i class="fa-regular fa-clock"></i>
+                15:30 (40 min)
+              </span>
+            </div>
+            <div class="cita-meta-item">
+              <span class="meta-label">Ubicación</span>
+              <span class="meta-value">
+                <i class="fa-solid fa-location-dot"></i>
+                Hospital Nacional Dos de Mayo
+              </span>
+            </div>
+          </div>
+          <div class="cita-list-actions">
+            <button class="btn-ver-detalles">
+              Ver detalles <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <button class="btn-reprogramar">Reprogramar</button>
+            <button class="btn-cancelar">Cancelar</button>
+          </div>
+        </div>
+        <div class="cita-list-right">
+          <span class="cita-id">ID: APT-2026-001199</span>
+          <span class="cita-price">200.00 PEN</span>
+        </div>
+      </div>
+
+      <!-- Cita 3 — Confirmada -->
+      <div class="cita-list-card">
+        <img class="cita-doctor-img" src="../assets/images/doctor-card-3.png" alt="Dr. Carlos Mendoza">
+        <div class="cita-list-content">
+          <div class="cita-list-top">
+            <h3>Dr. Carlos Mendoza</h3>
+            <span class="badge badge-confirmada">Confirmada</span>
+          </div>
+          <p class="cita-especialidad">Dermatología</p>
+          <div class="cita-rating">
+            <i class="fa-solid fa-star"></i>
+            4.7
+          </div>
+          <div class="cita-list-meta">
+            <div class="cita-meta-item">
+              <span class="meta-label">Fecha</span>
+              <span class="meta-value">
+                <i class="fa-regular fa-calendar"></i>
+                Viernes, 16 de Mayo 2026
+              </span>
+            </div>
+            <div class="cita-meta-item">
+              <span class="meta-label">Hora</span>
+              <span class="meta-value">
+                <i class="fa-regular fa-clock"></i>
+                09:00 (30 min)
+              </span>
+            </div>
+            <div class="cita-meta-item">
+              <span class="meta-label">Ubicación</span>
+              <span class="meta-value">
+                <i class="fa-solid fa-location-dot"></i>
+                Clínica San Felipe - Jesús María
+              </span>
+            </div>
+          </div>
+          <div class="cita-list-actions">
+            <button class="btn-ver-detalles">
+              Ver detalles <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <button class="btn-reprogramar">Reprogramar</button>
+            <button class="btn-cancelar">Cancelar</button>
+          </div>
+        </div>
+        <div class="cita-list-right">
+          <span class="cita-id">ID: APT-2026-001102</span>
+          <span class="cita-price">180.00 PEN</span>
+        </div>
+      </div>
+
+      <!-- Cita 4 — Completada -->
+      <div class="cita-list-card">
+        <img class="cita-doctor-img" src="../assets/images/doctor-card-1.png" alt="Dr. Jorge Ramirez">
+        <div class="cita-list-content">
+          <div class="cita-list-top">
+            <h3>Dr. Jorge Ramirez</h3>
+            <span class="badge badge-completada">Completada</span>
+          </div>
+          <p class="cita-especialidad">Pediatría</p>
+          <div class="cita-rating">
+            <i class="fa-solid fa-star"></i>
+            4.6
+          </div>
+          <div class="cita-list-meta">
+            <div class="cita-meta-item">
+              <span class="meta-label">Fecha</span>
+              <span class="meta-value">
+                <i class="fa-regular fa-calendar"></i>
+                Martes, 6 de Mayo 2026
+              </span>
+            </div>
+            <div class="cita-meta-item">
+              <span class="meta-label">Hora</span>
+              <span class="meta-value">
+                <i class="fa-regular fa-clock"></i>
+                11:00 (45 min)
+              </span>
+            </div>
+            <div class="cita-meta-item">
+              <span class="meta-label">Ubicación</span>
+              <span class="meta-value">
+                <i class="fa-solid fa-location-dot"></i>
+                Clínica Anglo Americana - San Isidro
+              </span>
+            </div>
+          </div>
+          <div class="cita-list-actions">
+            <button class="btn-ver-detalles">
+              Ver detalles <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <button class="btn-ver-resumen">Ver resumen médico</button>
+          </div>
+        </div>
+        <div class="cita-list-right">
+          <span class="cita-id">ID: APT-2026-000987</span>
+          <span class="cita-price">170.00 PEN</span>
+        </div>
+      </div>
+
+      <!-- Cita 5 — Completada -->
+      <div class="cita-list-card">
+        <img class="cita-doctor-img" src="../assets/images/doctor-card-2.png" alt="Dra. Ana Torres">
+        <div class="cita-list-content">
+          <div class="cita-list-top">
+            <h3>Dra. Ana Torres</h3>
+            <span class="badge badge-completada">Completada</span>
+          </div>
+          <p class="cita-especialidad">Oftalmología</p>
+          <div class="cita-rating">
+            <i class="fa-solid fa-star"></i>
+            4.8
+          </div>
+          <div class="cita-list-meta">
+            <div class="cita-meta-item">
+              <span class="meta-label">Fecha</span>
+              <span class="meta-value">
+                <i class="fa-regular fa-calendar"></i>
+                Jueves, 1 de Mayo 2026
+              </span>
+            </div>
+            <div class="cita-meta-item">
+              <span class="meta-label">Hora</span>
+              <span class="meta-value">
+                <i class="fa-regular fa-clock"></i>
+                14:00 (35 min)
+              </span>
+            </div>
+            <div class="cita-meta-item">
+              <span class="meta-label">Ubicación</span>
+              <span class="meta-value">
+                <i class="fa-solid fa-location-dot"></i>
+                Clínica Internacional - San Borja
+              </span>
+            </div>
+          </div>
+          <div class="cita-list-actions">
+            <button class="btn-ver-detalles">
+              Ver detalles <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <button class="btn-ver-resumen">Ver resumen médico</button>
+          </div>
+        </div>
+        <div class="cita-list-right">
+          <span class="cita-id">ID: APT-2026-000856</span>
+          <span class="cita-price">220.00 PEN</span>
+        </div>
+      </div>
+
+      <!-- Cita 6 — Cancelada -->
+      <div class="cita-list-card">
+        <img class="cita-doctor-img" src="../assets/images/doctor-card-3.png" alt="Dr. Luis Vargas">
+        <div class="cita-list-content">
+          <div class="cita-list-top">
+            <h3>Dr. Luis Vargas</h3>
+            <span class="badge badge-cancelada">Cancelada</span>
+          </div>
+          <p class="cita-especialidad">Traumatología</p>
+          <div class="cita-rating">
+            <i class="fa-solid fa-star"></i>
+            4.5
+          </div>
+          <div class="cita-list-meta">
+            <div class="cita-meta-item">
+              <span class="meta-label">Fecha</span>
+              <span class="meta-value">
+                <i class="fa-regular fa-calendar"></i>
+                Lunes, 28 de Abril 2026
+              </span>
+            </div>
+            <div class="cita-meta-item">
+              <span class="meta-label">Hora</span>
+              <span class="meta-value">
+                <i class="fa-regular fa-clock"></i>
+                16:30 (50 min)
+              </span>
+            </div>
+            <div class="cita-meta-item">
+              <span class="meta-label">Ubicación</span>
+              <span class="meta-value">
+                <i class="fa-solid fa-location-dot"></i>
+                Clínica San Pablo - Surco
+              </span>
+            </div>
+          </div>
+          <div class="cita-list-actions">
+            <button class="btn-ver-detalles">
+              Ver detalles <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <button class="btn-reagendar">Reagendar</button>
+          </div>
+        </div>
+        <div class="cita-list-right">
+          <span class="cita-id">ID: APT-2026-000745</span>
+          <span class="cita-price cancelled">0.00 PEN</span>
+        </div>
+      </div>
+
+    </div>
+    <!-- fin citas-list -->
+
+    <!-- FOOTER NOTE -->
+    <div class="citas-note">
+      <strong>Recuerda:</strong> Puedes cancelar o reprogramar tus citas con al menos 24 horas de anticipación sin costo adicional.
+      Para cualquier cambio dentro de las 24 horas previas, consulta las políticas de cada clínica.
+    </div>
+
+  </div>
+  <!-- fin citas-page -->
+
+</div>
+<!-- fin container -->
+
+<script>
+// Navbar dropdown
+const profileToggle = document.getElementById("profileToggle");
+const profileWrapper = document.getElementById("profileWrapper");
+
+profileToggle.addEventListener("click", () => {
+  profileWrapper.classList.toggle("active");
+});
+
+document.addEventListener("click", (e) => {
+  if (!profileWrapper.contains(e.target)) {
+    profileWrapper.classList.remove("active");
+  }
+});
+
+// Tab filter
+const tabs = document.querySelectorAll(".tab-btn");
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    tabs.forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+  });
+});
+</script>
+
+</body>
+</html>

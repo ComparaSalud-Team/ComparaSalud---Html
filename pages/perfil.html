@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mi Perfil – ComparaSalud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/perfil.css">
+</head>
+
+<body>
+<div class="container">
+
+  <!-- NAVBAR -->
+  <nav class="dashboard-navbar">
+    <div class="dashboard-left">
+      <a href="../index.html" class="dashboard-logo">
+        <img src="../assets/icons/logo.png" alt="">
+        <span>ComparaSalud</span>
+      </a>
+      <div class="dashboard-menu">
+        <a href="dashboard.html">Buscar</a>
+        <a href="citas.html">Mis citas</a>
+        <a href="#">Mis favoritos</a>
+        <a href="#">Documentos</a>
+      </div>
+    </div>
+
+    <div class="dashboard-right">
+      <div class="nav-circle">
+        <i class="fa-regular fa-circle-question"></i>
+      </div>
+      <div class="nav-circle">
+        <i class="fa-regular fa-bell"></i>
+      </div>
+      <div class="profile-wrapper" id="profileWrapper">
+        <div class="profile-box" id="profileToggle">
+          <img src="../assets/images/profile-user.png" alt="">
+          <div class="profile-info">
+            <strong>Marisol Gomez</strong>
+            <span>Paciente</span>
+          </div>
+          <div class="profile-arrow">
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+        </div>
+        <div class="profile-dropdown">
+          <a href="perfil.html">
+            <i class="fa-regular fa-user"></i>
+            Mi perfil
+          </a>
+          <a href="#">
+            <i class="fa-solid fa-gear"></i>
+            Configuración
+          </a>
+          <a href="../index.html">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            Cerrar sesión
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PERFIL PAGE -->
+  <div class="perfil-page">
+
+    <!-- HEADER CARD -->
+    <div class="profile-header-card">
+      <div class="profile-header-left">
+        <div class="profile-avatar-wrap">
+          <img src="../assets/images/profile-user.png" alt="Marisol Gomez">
+          <div class="avatar-camera">
+            <i class="fa-solid fa-camera"></i>
+          </div>
+        </div>
+        <div class="profile-header-info">
+          <h2>
+            Marisol Gomez Sánchez
+            <span class="verified-badge"><i class="fa-solid fa-check"></i></span>
+          </h2>
+          <p class="subtitle">
+            Paciente activa desde marzo 2024. Seguimiento constante de citas y documentos médicos.
+          </p>
+          <div class="profile-contact-row">
+            <span>
+              <i class="fa-regular fa-envelope"></i>
+              Marisol.Gomez@example.com
+            </span>
+            <span>
+              <i class="fa-solid fa-phone"></i>
+              +51 999 555 777
+            </span>
+            <span>
+              <i class="fa-solid fa-location-dot"></i>
+              Lima, Perú
+            </span>
+          </div>
+          <div class="profile-tags">
+            <span class="tag">Femenino</span>
+            <span class="tag">0+</span>
+            <span class="tag">38 años</span>
+          </div>
+        </div>
+      </div>
+      <button class="btn-share">
+        <i class="fa-solid fa-share-nodes"></i>
+        Compartir perfil médico
+      </button>
+    </div>
+
+    <!-- STATS BAR -->
+    <div class="stats-card">
+
+      <div class="stat-item">
+        <div class="stat-icon blue">
+          <i class="fa-regular fa-calendar-check"></i>
+        </div>
+        <div class="stat-info">
+          <p class="stat-label">Próximas citas</p>
+          <div class="stat-number">2</div>
+          <a href="#">Ver citas</a>
+        </div>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-icon green">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <div class="stat-info">
+          <p class="stat-label">Citas realizadas</p>
+          <div class="stat-number">12</div>
+          <a href="#">Ver historial</a>
+        </div>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-icon purple">
+          <i class="fa-regular fa-heart"></i>
+        </div>
+        <div class="stat-info">
+          <p class="stat-label">Médicos favoritos</p>
+          <div class="stat-number">5</div>
+          <a href="#">Ver favoritos</a>
+        </div>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-icon orange">
+          <i class="fa-regular fa-file"></i>
+        </div>
+        <div class="stat-info">
+          <p class="stat-label">Documentos</p>
+          <div class="stat-number">8</div>
+          <a href="#">Ver documentos</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- INFO CARDS -->
+    <div class="info-cards-grid">
+
+      <!-- Información personal -->
+      <div class="info-card">
+        <div class="info-card-header">
+          <div class="info-card-title">
+            <div class="info-card-title-icon blue">
+              <i class="fa-regular fa-user"></i>
+            </div>
+            <h3>Información personal</h3>
+          </div>
+          <button class="edit-btn"><i class="fa-regular fa-pen-to-square"></i></button>
+        </div>
+        <div class="info-rows">
+          <div class="info-row">
+            <span class="row-label">Fecha de nacimiento</span>
+            <span class="row-value">15 de agosto de 1998</span>
+          </div>
+          <div class="info-row">
+            <span class="row-label">DNI</span>
+            <span class="row-value">75311243</span>
+          </div>
+          <div class="info-row">
+            <span class="row-label">Estado civil</span>
+            <span class="row-value">Soltera</span>
+          </div>
+          <div class="info-row">
+            <span class="row-label">Profesión</span>
+            <span class="row-value">Diseñadora gráfica</span>
+          </div>
+          <div class="info-row">
+            <span class="row-label">Idioma preferido</span>
+            <span class="row-value">Español</span>
+          </div>
+          <div class="info-row">
+            <span class="row-label">Dirección</span>
+            <span class="row-value">Av. Javier Prado 1234, Miraflores</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Información médica -->
+      <div class="info-card">
+        <div class="info-card-header">
+          <div class="info-card-title">
+            <div class="info-card-title-icon red">
+              <i class="fa-regular fa-heart"></i>
+            </div>
+            <h3>Información médica</h3>
+          </div>
+          <button class="edit-btn"><i class="fa-regular fa-pen-to-square"></i></button>
+        </div>
+        <div class="info-rows">
+          <div class="info-row">
+            <span class="row-label">Tipo de sangre</span>
+            <span class="row-value">0+</span>
+          </div>
+          <div class="info-row">
+            <span class="row-label">Alergias</span>
+            <span class="row-value">Penicilina, Polen, Aínes</span>
+          </div>
+          <div class="info-row">
+            <span class="row-label">Condiciones médicas</span>
+            <span class="row-value">Asma leve</span>
+          </div>
+          <div class="info-row">
+            <span class="row-label">Medicamentos actuales</span>
+            <span class="row-value">Salbutamol (inhalador)</span>
+          </div>
+          <div class="info-row">
+            <span class="row-label">Seguro médico</span>
+            <span class="row-value">Rímac salud (Plan clásico)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contacto de emergencia -->
+      <div class="info-card">
+        <div class="info-card-header">
+          <div class="info-card-title">
+            <div class="info-card-title-icon green">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <h3>Contacto de emergencia</h3>
+          </div>
+          <button class="edit-btn"><i class="fa-regular fa-pen-to-square"></i></button>
+        </div>
+        <div class="info-rows">
+          <div class="info-row">
+            <span class="row-label">Nombre</span>
+            <span class="row-value">Carlos Goméz</span>
+          </div>
+          <div class="info-row">
+            <span class="row-label">Parentesco</span>
+            <span class="row-value">Padre</span>
+          </div>
+          <div class="info-row">
+            <span class="row-label">Teléfono</span>
+            <span class="row-value">+51 923 123 432</span>
+          </div>
+          <div class="info-row">
+            <span class="row-label">Dirección</span>
+            <span class="row-value">Lima, Perú</span>
+          </div>
+        </div>
+        <button class="emergency-btn">Añadir contacto de emergencia</button>
+      </div>
+
+    </div>
+
+    <!-- PRÓXIMAS CITAS -->
+    <div class="section-card">
+      <div class="section-card-header">
+        <div class="section-card-title">
+          <div class="stat-icon blue section-icon">
+            <i class="fa-regular fa-calendar-check"></i>
+          </div>
+          <h3>Próximas citas</h3>
+        </div>
+        <a href="#" class="section-card-link">Ver todos</a>
+      </div>
+
+      <div class="citas-grid">
+
+        <div class="cita-card">
+          <div class="cita-date">
+            <div class="day-num">20</div>
+            <div class="month">MAY</div>
+          </div>
+          <div class="cita-info">
+            <strong>Dr. Carlos Méndez</strong>
+            <p class="especialidad">Cardiología</p>
+            <div class="cita-meta">
+              <span><i class="fa-regular fa-clock"></i> 10:30 am</span>
+              <span><i class="fa-solid fa-location-dot"></i> Clínica Ricardo Palma</span>
+            </div>
+          </div>
+          <i class="fa-solid fa-chevron-right cita-arrow"></i>
+        </div>
+
+        <div class="cita-card">
+          <div class="cita-date">
+            <div class="day-num">05</div>
+            <div class="month">JUN</div>
+          </div>
+          <div class="cita-info">
+            <strong>Dra. Ana Torres</strong>
+            <p class="especialidad">Dermatología</p>
+            <div class="cita-meta">
+              <span><i class="fa-regular fa-clock"></i> 9:00 am</span>
+              <span><i class="fa-solid fa-location-dot"></i> Clínica San Felipe</span>
+            </div>
+          </div>
+          <i class="fa-solid fa-chevron-right cita-arrow"></i>
+        </div>
+
+        <div class="nueva-cita-card">
+          <i class="fa-regular fa-calendar-plus"></i>
+          <span>Agendar nueva cita</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- HISTORIAL MÉDICO -->
+    <div class="section-card">
+      <div class="section-card-header">
+        <div class="section-card-title">
+          <div class="stat-icon orange section-icon">
+            <i class="fa-regular fa-file"></i>
+          </div>
+          <h3>Historial médico y documentos</h3>
+        </div>
+        <a href="#" class="section-card-link" style="color:#F97316;">Ver todos</a>
+      </div>
+
+      <p class="historial-subtitle">
+        Accede a tus recetas, resultados de análisis e informes médicos.
+      </p>
+
+      <div class="historial-grid">
+        <div class="historial-item">
+          <p class="hist-title">Resultados de análisis</p>
+          <div class="historial-item-bottom">
+            <span class="hist-count">8 documentos</span>
+            <a class="hist-ver">Ver</a>
+          </div>
+        </div>
+        <div class="historial-item">
+          <p class="hist-title">Recetas médicas</p>
+          <div class="historial-item-bottom">
+            <span class="hist-count">5 documentos</span>
+            <a class="hist-ver">Ver</a>
+          </div>
+        </div>
+        <div class="historial-item">
+          <p class="hist-title">Informes médicos</p>
+          <div class="historial-item-bottom">
+            <span class="hist-count">12 documentos</span>
+            <a class="hist-ver">Ver</a>
+          </div>
+        </div>
+        <div class="historial-item">
+          <p class="hist-title">Estudios e imágenes</p>
+          <div class="historial-item-bottom">
+            <span class="hist-count">3 documentos</span>
+            <a class="hist-ver">Ver</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- fin perfil-page -->
+
+</div>
+<!-- fin container -->
+
+<script>
+const profileToggle = document.getElementById("profileToggle");
+const profileWrapper = document.getElementById("profileWrapper");
+
+profileToggle.addEventListener("click", () => {
+  profileWrapper.classList.toggle("active");
+});
+
+document.addEventListener("click", (e) => {
+  if (!profileWrapper.contains(e.target)) {
+    profileWrapper.classList.remove("active");
+  }
+});
+</script>
+
+</body>
+</html>
